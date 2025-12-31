@@ -1,0 +1,3 @@
+[submodule "Meta-DMoE"]
+	path = Meta-DMoE
+	url = https://github.com/n3il666/Meta-DMoE.git

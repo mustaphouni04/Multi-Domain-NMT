@@ -1,0 +1,22 @@
+
+models_path: "domain_models/"
+student_model_path: "Helsinki-NLP/opus-mt-en-es"
+
+splits:
+  elrc:       "Splits/elrc_train_set.csv"
+  neulab:     "Splits/neulab_train_set.csv"
+  pubmed:     "Splits/pubmed_train_set.csv"
+  automobile: "Splits/automobile_train_set.csv"
+
+batch_size: 12
+max_epochs: 100
+device: "cuda"
+patience: 10 # early stopping patience  
+inner_lr: 5e-4  # 1e-4 be4
+meta_lr: 3e-5 # 3e-5 be4
+
+distill:
+  temperature: 4.0
+  alpha: 0.5        # weight on KD loss
+  use_rep: false    # toggle representation loss
+  rep_beta: 0.1
