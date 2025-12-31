@@ -1,4 +1,4 @@
-# Project Title: Multi-Domain NMT 
+# Multi-Domain NMT 
 
 ## Project Description
 
