@@ -2,9 +2,13 @@
 
 ## Project Description
 
+![Multi-Domain  KD](maml.png)
+
 Our main work aims to advance neural machine translation by developing a single model that achieves performance on par with domain-specific fine-tuned experts, while remaining readily adaptable to unseen domains via Model-Agnostic Meta-Learning (MAML) without compromising accuracy on previously encountered domains and thereby avoiding catastrophic forgetting. This approach is inspired by Zhong et al. who combined knowledge distillation from multiple domain-specialized experts with meta-learning for rapid adaptation, albeit in the image-processing context; our work extends this paradigm to textual data.
 
 We employ a predefined set of domains from OPUS alongside the automotive data given—legal (ELRC-1076-EUIPO law), general (NeuLab-TedTalks), and medical (WMT-16 PubMed), each associated with a frozen expert model fine-tuned from the MarianNMT base. Initially, an aggregator network (a Transformer-based classifier) was introduced to route expert outputs to the student: the classifier’s softmax scores over domain labels weight the corresponding expert logits, and an attention mechanism combines these weighted logits into a unified representation. Although this soft-mixture strategy yields a modest performance gain over hard expert selection, our experimental results demonstrate that omitting the aggregator altogether simplifies training and ultimately delivers superior translation quality.
+
+![MAML on OOD](learn2learn.png)
 
 We employ a two-stage procedure to train a single "universal" student model capable of rapid adaptation to novel domains. In the warmup phase, we first distill knowledge from a pool of expert teachers into the student via sequence-level and token-level objectives similar to Kim & Rush.
 
